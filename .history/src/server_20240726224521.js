@@ -2,11 +2,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
 import initWebRoutes from "./route/web";
-require('dotenv').config();
-//import dotenv from 'dotenv';
-//dotenv.config();
+import dotenv from 'dotenv';
 import connectDB from './config/connectDB';
 
+dotenv.config();
 
 let app = express();
 
