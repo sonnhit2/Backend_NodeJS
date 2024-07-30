@@ -27,9 +27,7 @@ let displayGetCRUD = async (req, res) =>{
     console.log('--------------------------------------');
     console.log(data);
     console.log('--------------------------------------');
-    return res.render("displayCRUD.ejs",{
-        dataTable: data
-    });
+    return res.render("displayCRUD.ejs");
 }
 
 module.exports = {
