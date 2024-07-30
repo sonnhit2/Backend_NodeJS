@@ -1,5 +1,4 @@
 import db from '../models/index';
-import CRUDService from "../services/CRUDService";
 
 let getHomePage = async(req, res)=>{
     try {
@@ -16,11 +15,8 @@ let getCRUD = (req,res)=>{
     return res.render("crud.ejs");
 }
 
-let postCRUD = async(req,res)=>{
-    console.log('1234');
-    let message = await CRUDService.createNewUser(req.body);
-    console.log('56789');
-    console.log(message);
+let postCRUD = (req,res)=>{
+    console.log(req.body);
     return res.send("Post crud from server");
 }
 
