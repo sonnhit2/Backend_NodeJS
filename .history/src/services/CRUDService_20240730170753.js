@@ -61,7 +61,7 @@ let getUserInfoById=(userId)=>{
                 resolve(user);
             }
             else{
-                resolve({});
+                resolve([]);
             }
 
         } catch (e) {

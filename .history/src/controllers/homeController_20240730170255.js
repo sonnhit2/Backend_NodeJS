@@ -39,7 +39,7 @@ let getEditCRUD = async (req,res) => {
         console.log('------------------------------------------');
         console.log(userData);
         console.log('------------------------------------------');
-        return res.send('User is found!');
+
     }
     else{
         return res.send('User is not found!');

@@ -32,18 +32,9 @@ let displayGetCRUD = async (req, res) =>{
     });
 }
 
-let getEditCRUD = async (req,res) => {
-    let userId = req.query.id;
-    if(userId){
-        let userData = await CRUDService.getUserInfoById(userId);
-        console.log('------------------------------------------');
-        console.log(userData);
-        console.log('------------------------------------------');
-        return res.send('User is found!');
-    }
-    else{
-        return res.send('User is not found!');
-    }
+let getEditCRUD = (req,res) => {
+    console.log(req.query.id);
+    return res.send('Hello from edit page');
 }
 
 module.exports = {

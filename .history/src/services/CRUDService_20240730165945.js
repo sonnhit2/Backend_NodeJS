@@ -53,17 +53,8 @@ let getUserInfoById=(userId)=>{
     return new Promise(async(resolve,reject)=>{
         try {
             let user = await db.User.findOne({ 
-                where: { id: userId },
-                raw:true,
+                where: { id: userId }
             });
-
-            if(user){
-                resolve(user);
-            }
-            else{
-                resolve({});
-            }
-
         } catch (e) {
             reject(e);            
         }
