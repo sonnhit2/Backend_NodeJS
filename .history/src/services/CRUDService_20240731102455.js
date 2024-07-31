@@ -111,7 +111,7 @@ let deleteUserById = (userId)=>{
                 await user.destroy();
             }
 
-            resolve(); //= return : thoat khoi ham Promise
+            resolve();
         } catch (e) {
             reject(e);            
         }

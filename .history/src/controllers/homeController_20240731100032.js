@@ -24,6 +24,9 @@ let postCRUD = async(req,res)=>{
 
 let displayGetCRUD = async (req, res) =>{
     let data = await CRUDService.getAllUser();
+    console.log('--------------------------------------');
+    console.log(data);
+    console.log('--------------------------------------');
     return res.render("displayCRUD.ejs",{
         dataTable: data
     });
@@ -56,17 +59,8 @@ let putCRUD = async(req,res)=>{
     })
 }
 
-let deleteCRUD = async (req, res)=>{
-    //xác định id của user cần xoá được gửi từ query của client
-    let id= req.query.id;
-    //nếu id khác rỗng
-    if(id){
-        await CRUDService.deleteUserById(id);
-        return res.send('Delete user succeed!');        
-    }
-    else{
-        return res.send('User not found!');
-    }
+let deleteCRUD = (req, res)=>{
+
 }
 
 module.exports = {
