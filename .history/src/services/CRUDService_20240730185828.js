@@ -71,31 +71,7 @@ let getUserInfoById=(userId)=>{
 }
 
 let updateUserData=(data)=>{
-    return new Promise(async (resove, reject) =>{
-        try{
-            //tim user de chinh sua
-            let user = await db.User.findOne({
-                where: { id: data.id }
-            })
-            //neu user duoc tim thay thi thuc hien cap nhat 
-            //thong tin cua user theo bien data truyen vao
-            if(user) {
-                user.firstName = data.firstName;
-                user.lastName = data.lastName;
-                user.address = data.address;
 
-                await user.save();
-                //thực hiện trả về danh sách users
-                let allUsers = await db.User.findAll();
-                resove(allUsers);
-            }
-            else{
-                resove();
-            }
-        }catch(e){
-            console.log(e);
-        }
-    });
 }
 
 module.exports = {

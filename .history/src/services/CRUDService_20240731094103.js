@@ -85,8 +85,10 @@ let updateUserData=(data)=>{
                 user.address = data.address;
 
                 await user.save();
+
                 //thực hiện trả về danh sách users
                 let allUsers = await db.User.findAll();
+
                 resove(allUsers);
             }
             else{
