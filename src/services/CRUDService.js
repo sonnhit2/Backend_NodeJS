@@ -71,7 +71,7 @@ let getUserInfoById=(userId)=>{
 }
 
 let updateUserData=(data)=>{
-    return new Promise(async (resove, reject) =>{
+    return new Promise(async (resolve, reject) =>{
         try{
             //tim user de chinh sua
             let user = await db.User.findOne({
@@ -87,10 +87,10 @@ let updateUserData=(data)=>{
                 await user.save();
                 //thực hiện trả về danh sách users
                 let allUsers = await db.User.findAll();
-                resove(allUsers);
+                resolve(allUsers);
             }
             else{
-                resove();
+                resolve();
             }
         }catch(e){
             console.log(e);
