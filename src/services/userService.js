@@ -19,23 +19,23 @@ let handleUserLogin = (email, password)=>{
                     let check = bcrypt.compareSync(password, user.password);
                     if(check){
                         userData.errCode=0;
-                        userData.errMessage = 'Ok';
+                        userData.message = 'Ok';
                         delete user.password; //khong show truong password, nhớ gán raw:true
                         userData.user = user;
                     }
                     else{
                         userData.errCode = 3;
-                        userData.errMessage = 'Wrong password';
+                        userData.message = "Wrong password";
                     }
                 }else{
                     userData.errCode = 2,
-                    userData.errMessage = `User is not found`;
+                    userData.message = `User is not found`;
                 }
             }
             else{
                 //return error
                 userData.errCode=1;
-                userData.errMessage = `Your's Email isn't exist in your system. Plz try other email!`;
+                userData.message = `Your's Email isn't exist in your system. Plz try other email!`;
             }
             resolve(userData);
 

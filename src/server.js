@@ -6,10 +6,16 @@ require('dotenv').config();
 //import dotenv from 'dotenv';
 //dotenv.config();
 import connectDB from './config/connectDB';
-
+import cors from 'cors';
 
 let app = express();
 
+const corsOptions = {
+    origin: 'http://localhost:3000', // Set your specific origin
+    credentials: true // Allow credentials
+  };
+
+app.use(cors(corsOptions));
 //config app
 
 app.use(bodyParser.json());
