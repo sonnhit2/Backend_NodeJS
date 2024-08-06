@@ -184,7 +184,8 @@ let updateUserData=(data)=>{
 
             //tim user de chinh sua
             let user = await db.User.findOne({
-                where: { id: data.id }, raw:false
+                where: { id: data.id }, 
+                raw:false //khong co no se bi loi ham user.save()
             })
             //neu user duoc tim thay thi thuc hien cap nhat 
             //thong tin cua user theo bien data truyen vao
