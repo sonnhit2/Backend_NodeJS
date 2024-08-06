@@ -1,4 +1,4 @@
-import userServices from "../services/userService";
+import userService from "../services/userService";
 
 let handleLogin = async (req, res) => {
     let email = req.body.email;
@@ -11,7 +11,7 @@ let handleLogin = async (req, res) => {
         });
     }
 
-    let userData = await userServices.handleUserLogin(email,password);
+    let userData = await userService.handleUserLogin(email,password);
 
     return res.status(200).json({
         errCode: userData.errCode,
@@ -20,6 +20,23 @@ let handleLogin = async (req, res) => {
     })
 }
 
+let handleGetAllUsers = async (req, res) =>{
+    let id = req.body.id; //ALL: lấy tất cả người dùng; id: 
+    if(!id){
+        return res.status(200).json({
+            errCode:1,
+            errMessage: 'Missing required parameters',
+            user:[]
+        });
+    }
+
+    let users = await userService.getAllUsers(id);
+    return res.status(200).json({
+        errCode: 0, errMessage: 'OK', users
+    });
+}
+
 module.exports = {
-    handleLogin:handleLogin
+    handleLogin: handleLogin,
+    handleGetAllUsers: handleGetAllUsers
 }
